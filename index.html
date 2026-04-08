@@ -1,7 +1,9 @@
+<!-- INDEX PRINCIPAL -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Para Ti 💖</title>
 <style>
 body {
@@ -10,6 +12,7 @@ body {
   background: linear-gradient(135deg, pink, lightcoral);
   text-align: center;
   color: white;
+  overflow: hidden;
 }
 
 .menu {
@@ -24,18 +27,47 @@ a {
   color: #ff4b5c;
   text-decoration: none;
   border-radius: 10px;
+  transition: 0.3s;
+}
+
+a:hover {
+  background: #ff4b5c;
+  color: white;
+}
+
+.heart {
+  position: absolute;
+  animation: float 6s linear infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(100vh); opacity: 1; }
+  100% { transform: translateY(-10vh); opacity: 0; }
 }
 </style>
 </head>
 <body>
 
 <h1>Para Mi Amor 💖</h1>
+<p>Esta página es solo para ti ✨</p>
 
 <div class="menu">
   <a href="poemas/index.html">📜 Poemas</a>
   <a href="fotos/index.html">📸 Fotos</a>
   <a href="deseos/index.html">✨ Deseos</a>
 </div>
+
+<script>
+setInterval(() => {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerText = "💖";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = (Math.random() * 20 + 10) + "px";
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), 6000);
+}, 300);
+</script>
 
 </body>
 </html>
